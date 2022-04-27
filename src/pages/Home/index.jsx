@@ -1,6 +1,8 @@
 import '../styles/App.css';
 
 function App() {
+  let mavariable = 0;
+  
   return (
     <div className="App">
       <header className="App-header">
