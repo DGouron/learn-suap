@@ -1,11 +1,9 @@
-import '../../styles/App.css';
-
-function App() {
+function Home() {
   return (
-    <div className="App">
-      <header className="App-header">LEARN SUAP APP</header>
+    <div>
+      <h1> Page d'accueil 🏠</h1>
     </div>
   );
 }
 
-export default App;
+export default Home;
