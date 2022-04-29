@@ -6,16 +6,18 @@ const StyledAnswersPannel = styled.div`
   background-color: maroon;
   border: 1px solid grey;
   border-radius: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
-function AnswersPannel() {
+function AnswersPannel(props) {
+  let answers = [];
+  for (let index = 0; index < props.answers.length; index++) {
+    answers.push(<Answer content={props.answers[index]} />);
+  }
+
   return (
-    <StyledAnswersPannel>
-      <Answer />
-      <Answer />
-      <Answer />
-      <Answer />
-    </StyledAnswersPannel>
+    <StyledAnswersPannel>{answers.map((answer) => answer)}</StyledAnswersPannel>
   );
 }
 

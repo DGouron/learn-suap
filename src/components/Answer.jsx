@@ -2,14 +2,20 @@ import styled from 'styled-components';
 const StyledAnswer = styled.div`
   background-color: red;
   border: 1px solid grey;
-  border-radius: 20px;
   margin: 10px;
 `;
 
-function Answer() {
+const StyledButton = styled.input`
+  width: auto;
+  min-width: 128px;
+  height: 96px;
+  font-size: 18px;
+`;
+
+function Answer(props) {
   return (
     <StyledAnswer>
-      <p>C - pallier à la défaillance des structures libérales</p>
+      <StyledButton type="button" value={props.content} />
     </StyledAnswer>
   );
 }

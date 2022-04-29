@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-const Pannel = styled.div`
+const StyledPannel = styled.div`
   height: 60%;
   width: 20%;
   background-color: green;
 `;
 
 function StatsPannel() {
-  return <Pannel></Pannel>;
+  return <StyledPannel></StyledPannel>;
 }
 
 export default StatsPannel;

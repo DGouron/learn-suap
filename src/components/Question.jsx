@@ -1,8 +1,14 @@
-function Question() {
+import styled from 'styled-components';
+
+const StyledQuestion = styled.div`
+  flex-grow: 2;
+`;
+
+function Question(props) {
   return (
-    <div>
-      <h2>Le SSSM peut intervenir pour :</h2>
-    </div>
+    <StyledQuestion>
+      <h2>{props.title} :</h2>
+    </StyledQuestion>
   );
 }
 
