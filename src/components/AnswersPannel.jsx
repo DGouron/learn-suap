@@ -13,7 +13,9 @@ const StyledAnswersPannel = styled.div`
 function AnswersPannel(props) {
   let answers = [];
   for (let index = 0; index < props.answers.length; index++) {
-    answers.push(<Answer content={props.answers[index]} />);
+    answers.push(
+      <Answer key={index} answerId={index} content={props.answers[index]} />
+    );
   }
 
   return (

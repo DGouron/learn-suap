@@ -5,7 +5,7 @@ import Categories from './Categories';
 import Question from './Question';
 
 const StyledBoard = styled.div`
-  height: 60%;
+  height: auto;
   width: 60%;
   max-width: 60%;
   background-color: blue;
