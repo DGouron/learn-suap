@@ -51,7 +51,7 @@ function Board() {
         setAnswered(false);
       }
     }
-  }, [answered, updateRender]);
+  }, [currentAnswerId, answered, updateRender]);
 
   return isLaunched === false ? (
     <StyledBoard>
