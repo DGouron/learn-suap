@@ -18,7 +18,7 @@ function Answer(props) {
   console.log(answerId);
   return (
     <StyledAnswer>
-      <StyledButton onClick={() => handleClick()}>{props.content}</StyledButton>
+      <StyledButton onClick={() => handleClick()}></StyledButton>
     </StyledAnswer>
   );
 }
