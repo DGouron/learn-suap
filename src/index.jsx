@@ -2,6 +2,8 @@ import React from 'react';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './store/Store';
 
 import './styles/index.css';
 import Home from './pages/Home/index';
@@ -13,14 +15,16 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
-  <StrictMode>
-    <Router>
-      <Header />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/survey" element={<Survey />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </Router>
-  </StrictMode>
+  <Provider store={store}>
+    <StrictMode>
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/survey" element={<Survey />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Router>
+    </StrictMode>
+  </Provider>
 );

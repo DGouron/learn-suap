@@ -9,6 +9,8 @@ import Question from './Question';
 
 const StyledBoard = styled.div`
   height: auto;
+  min-height: 50%;
+  max-height: 60%;
   width: 60%;
   max-width: 60%;
   background-color: blue;

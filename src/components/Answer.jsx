@@ -1,4 +1,10 @@
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import {
+  initialState,
+  UPDATE_SELECTEDANSWER_ID_ACTION,
+} from '../store/AnswerManagementReducer';
+
 const StyledAnswer = styled.div`
   background-color: red;
   border: 1px solid grey;
@@ -11,22 +17,29 @@ const StyledButton = styled.button`
   height: 96px;
   font-size: 18px;
 `;
-let answerId = -1;
+let selectedAnswerId = -1;
 
 function Answer(props) {
-  answerId = props.answerId;
-  console.log(answerId);
-  let setAnswerId = props.setAnswerId;
+  selectedAnswerId = props.answerId;
+  const dispatch = useDispatch();
+
   let setAnswered = props.setAnswered;
 
   function selectThisAnswer() {
-    setAnswerId(answerId);
     setAnswered(true);
   }
 
   return (
     <StyledAnswer>
-      <StyledButton onClick={() => selectThisAnswer()}>
+      <StyledButton
+        onClick={() => {
+          dispatch({
+            type: UPDATE_SELECTEDANSWER_ID_ACTION,
+            payload: { ...initialState, selectedAnswerId },
+          });
+          selectThisAnswer();
+        }}
+      >
         {props.content}
       </StyledButton>
     </StyledAnswer>
