@@ -15,10 +15,13 @@ let answerId = -1;
 
 function Answer(props) {
   answerId = props.answerId;
+  console.log(answerId);
   let setAnswerId = props.setAnswerId;
+  let setAnswered = props.setAnswered;
+
   function selectThisAnswer() {
     setAnswerId(answerId);
-    console.log(answerId);
+    setAnswered(true);
   }
 
   return (

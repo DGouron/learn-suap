@@ -40,16 +40,18 @@ function Board() {
   const [, forceUpdate] = useState();
   const updateRender = useCallback(() => forceUpdate({}), []);
 
-  const [currentAnswerId, setAnswerId] = useState(-1);
+  const [currentAnswerId, setAnswerId] = useState(42);
+  const [answered, setAnswered] = useState(false);
   useEffect(() => {
-    if (currentAnswerId !== -1) {
+    if (currentAnswerId !== -1 && answered === true) {
       if (checkAnswerValidity(currentAnswerId)) {
         currentQuestion = pickRandomQuestion();
 
         updateRender();
+        setAnswered(false);
       }
     }
-  }, [currentAnswerId, updateRender]);
+  }, [answered, updateRender]);
 
   return isLaunched === false ? (
     <StyledBoard>
@@ -72,6 +74,8 @@ function Board() {
         answers={currentQuestion.Answers}
         currentAnswerId={currentAnswerId}
         setAnswerId={setAnswerId}
+        answered={answered}
+        setAnswered={setAnswered}
       />
     </StyledBoard>
   );
@@ -95,7 +99,7 @@ function pickRandomQuestion() {
 function checkAnswerValidity(answerId = 0) {
   let isAGoodAnswer = currentGoodAnswers.includes(answerId, 0);
   console.log(isAGoodAnswer ? 'Good Answer' : 'Bad Answer');
-  return isAGoodAnswer;
+  return true;
 }
 
 export default Board;

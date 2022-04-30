@@ -1,5 +1,6 @@
 import Answer from './Answer';
 import styled from 'styled-components';
+
 const StyledAnswersPannel = styled.div`
   display: flex;
   flex-direction: row;
@@ -20,9 +21,10 @@ function AnswersPannel(props) {
         content={props.answers[index]}
         currentAnswerId={props.currentAnswerId}
         setAnswerId={props.setAnswerId}
+        answered={props.answered}
+        setAnswered={props.setAnswered}
       />
     );
-    console.log(index);
   }
 
   return (
