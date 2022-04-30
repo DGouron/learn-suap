@@ -11,19 +11,23 @@ const StyledButton = styled.button`
   height: 96px;
   font-size: 18px;
 `;
-let answerId = undefined;
+let answerId = -1;
 
 function Answer(props) {
   answerId = props.answerId;
-  console.log(answerId);
+  let setAnswerId = props.setAnswerId;
+  function selectThisAnswer() {
+    setAnswerId(answerId);
+    console.log(answerId);
+  }
+
   return (
     <StyledAnswer>
-      <StyledButton onClick={() => handleClick()}>{props.content}</StyledButton>
+      <StyledButton onClick={() => selectThisAnswer()}>
+        {props.content}
+      </StyledButton>
     </StyledAnswer>
   );
 }
 
-function handleClick() {
-  console.log(answerId);
-}
 export default Answer;

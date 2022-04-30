@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useCallback } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { dataQuestions } from '../datas/Questions';
 import AnswersPannel from './AnswersPannel';
@@ -18,13 +21,58 @@ const StyledBoard = styled.div`
   flex-direction: column;
 `;
 
+const StyledLauncherButton = styled.button`
+  width: 128px;
+  min-width: 128px;
+  height: 96px;
+  font-size: 18px;
+`;
+
+let currentQuestion = '';
+let currentGoodAnswers = [];
+
 function Board() {
-  let currentQuestion = pickRandomQuestion();
-  return (
+  const [isLaunched, setIsLaunched] = useState(false);
+  useEffect(() => {
+    document.title = isLaunched ? 'Quiz en cours ! ' : 'Learn Suap App';
+  }, [isLaunched]);
+
+  const [, forceUpdate] = useState();
+  const updateRender = useCallback(() => forceUpdate({}), []);
+
+  const [currentAnswerId, setAnswerId] = useState(-1);
+  useEffect(() => {
+    if (currentAnswerId !== -1) {
+      if (checkAnswerValidity(currentAnswerId)) {
+        currentQuestion = pickRandomQuestion();
+
+        updateRender();
+      }
+    }
+  }, [currentAnswerId, updateRender]);
+
+  return isLaunched === false ? (
+    <StyledBoard>
+      <Categories />
+      <StyledLauncherButton
+        onClick={() => {
+          currentQuestion = pickRandomQuestion();
+          setIsLaunched(true);
+        }}
+      >
+        Commencer
+      </StyledLauncherButton>
+    </StyledBoard>
+  ) : (
     <StyledBoard>
       <Categories />
       <Question title={currentQuestion.Question} />
-      <AnswersPannel answers={currentQuestion.Answers} />
+      <p>{currentAnswerId}</p>
+      <AnswersPannel
+        answers={currentQuestion.Answers}
+        currentAnswerId={currentAnswerId}
+        setAnswerId={setAnswerId}
+      />
     </StyledBoard>
   );
 }
@@ -43,4 +91,11 @@ function pickRandomQuestion() {
 
   return currentCategory.questions[randomID];
 }
+
+function checkAnswerValidity(answerId = 0) {
+  let isAGoodAnswer = currentGoodAnswers.includes(answerId, 0);
+  console.log(isAGoodAnswer ? 'Good Answer' : 'Bad Answer');
+  return isAGoodAnswer;
+}
+
 export default Board;

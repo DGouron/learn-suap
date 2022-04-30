@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.5.0",
     "prettier": "2.6.2"
   }
 }

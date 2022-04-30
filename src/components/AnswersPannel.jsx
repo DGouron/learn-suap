@@ -14,8 +14,15 @@ function AnswersPannel(props) {
   let answers = [];
   for (let index = 0; index < props.answers.length; index++) {
     answers.push(
-      <Answer key={index} answerId={index} content={props.answers[index]} />
+      <Answer
+        key={index}
+        answerId={index}
+        content={props.answers[index]}
+        currentAnswerId={props.currentAnswerId}
+        setAnswerId={props.setAnswerId}
+      />
     );
+    console.log(index);
   }
 
   return (
