@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import {
-  initialState,
-  UPDATE_SELECTEDANSWER_ID_ACTION,
-} from '../store/AnswerManagementReducer';
+import { updateSelectedAnswerId } from '../store/AnswerManagementActions';
 
 const StyledAnswer = styled.div`
   background-color: red;
@@ -33,10 +30,7 @@ function Answer(props) {
     <StyledAnswer>
       <StyledButton
         onClick={() => {
-          dispatch({
-            type: UPDATE_SELECTEDANSWER_ID_ACTION,
-            payload: { ...initialState, selectedAnswerId },
-          });
+          dispatch(updateSelectedAnswerId(selectedAnswerId));
           selectThisAnswer();
         }}
       >
