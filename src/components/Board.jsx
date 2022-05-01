@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useCallback } from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { dataQuestions } from '../datas/Questions';
+import { updateGoodAnswers } from '../store/AnswerManagementActions';
 import AnswersPannel from './AnswersPannel';
 import Categories from './Categories';
 import Question from './Question';
@@ -44,10 +46,13 @@ function Board() {
 
   const [currentAnswerId, setAnswerId] = useState(42);
   const [answered, setAnswered] = useState(false);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (currentAnswerId !== -1 && answered === true) {
       if (checkAnswerValidity(currentAnswerId)) {
         currentQuestion = pickRandomQuestion();
+        dispatch(updateGoodAnswers(currentQuestion.goodAnswersIds));
 
         updateRender();
         setAnswered(false);
@@ -91,10 +96,6 @@ function pickRandomQuestion() {
   let randomID = Math.round(
     Math.random() * (currentCategory.questions.length - 1 - 0) + 0
   );
-
-  console.log(currentCategory);
-  console.log(currentCategory.questions[randomID].Question);
-
   return currentCategory.questions[randomID];
 }
 
