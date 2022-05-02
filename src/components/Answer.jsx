@@ -17,7 +17,7 @@ const StyledButton = styled.button`
 `;
 
 function Answer(props) {
-  const [idOfthisAnswer, setIdOfthisAnswer] = useState(props.idOfthisAnswer);
+  const [idOfthisAnswer] = useState(props.idOfthisAnswer);
 
   const dispatch = useDispatch();
   let setAnswered = props.setAnswered;
