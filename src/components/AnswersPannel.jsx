@@ -17,7 +17,7 @@ function AnswersPannel(props) {
     answers.push(
       <Answer
         key={index}
-        answerId={index}
+        idOfthisAnswer={index}
         content={props.answers[index]}
         currentAnswerId={props.currentAnswerId}
         setAnswerId={props.setAnswerId}

@@ -9,3 +9,8 @@ export const updateGoodAnswers = (goodAnswersIds) => ({
     type: UPDATE_GOOD_ANSWERS_ACTION,
     payload: {...goodAnswersIds, goodAnswersIds: goodAnswersIds}
 })
+
+export const updateScore = (scorePointsToAdd) => ({
+    type: UPDATE_SELECTEDANSWER_ID_ACTION,
+    payload: {...scorePointsToAdd, score: scorePointsToAdd}
+})
