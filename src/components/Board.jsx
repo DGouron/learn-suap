@@ -76,7 +76,6 @@ function Board() {
     <StyledBoard>
       <Categories />
       <Question title={currentQuestion.Question} />
-      <p>{currentAnswerId}</p>
       <AnswersPannel
         answers={currentQuestion.Answers}
         currentAnswerId={currentAnswerId}
