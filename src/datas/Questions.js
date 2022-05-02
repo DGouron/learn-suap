@@ -26,6 +26,12 @@ export const dataQuestions =
                 "Question": "Une association agréée de sécurité civile peut intervenir lors des opérations de secours",
                 "Answers": ["A - vrai", "B - faux"],
                 "GoodAnswers" : [0]
+                },
+                {
+                "id": 5,
+                "Question": "Dans l'acronyme U.I.I.S.C., que signifie le premier I",
+                "Answers": ["A - Intervention", "B - Instruction", "C - Internationale"],
+                "GoodAnswers" : [1]
                 }
         ]
     },

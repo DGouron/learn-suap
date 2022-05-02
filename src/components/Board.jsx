@@ -4,11 +4,19 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { dataQuestions } from '../datas/Questions';
-import { updateGoodAnswers } from '../store/AnswerManagementActions';
-import { currentScoreSelector } from '../store/AnswerManagementSelectors';
+import {
+  updateGoodAnswers,
+  updateNeedRestartApp,
+} from '../store/AnswerManagementActions';
+import {
+  currentCategorySelected,
+  currentNeedRestartAppSelector,
+  currentScoreSelector,
+} from '../store/AnswerManagementSelectors';
 import AnswersPannel from './AnswersPannel';
 import Categories from './Categories';
 import Question from './Question';
+import Verdict from './Verdict';
 
 const StyledBoard = styled.div`
   height: auto;
@@ -36,37 +44,47 @@ const StyledLauncherButton = styled.button`
 let currentQuestion = '';
 
 function Board() {
+  const dispatch = useDispatch();
+
   const score = useSelector(currentScoreSelector);
+  const categorySelected = useSelector(currentCategorySelected);
+
   const [isLaunched, setIsLaunched] = useState(false);
   useEffect(() => {
     document.title = isLaunched ? `Quiz score ${score} ! ` : 'Learn Suap App';
   }, [isLaunched, score]);
 
+  const bNeedRestartApp = useSelector(currentNeedRestartAppSelector);
+  useEffect(() => {
+    if (bNeedRestartApp) {
+      setIsLaunched(false);
+      dispatch(updateNeedRestartApp(false));
+    }
+  }, [bNeedRestartApp, dispatch]);
+
   const [, forceUpdate] = useState();
   const updateRender = useCallback(() => forceUpdate({}), []);
 
   const [answered, setAnswered] = useState(false);
-  const dispatch = useDispatch();
-
   useEffect(() => {
     if (answered === true) {
-      currentQuestion = pickRandomQuestion();
+      currentQuestion = pickRandomQuestion(categorySelected);
       dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
       updateRender();
       setAnswered(false);
     }
-  }, [answered, updateRender, dispatch]);
+  }, [answered, updateRender, dispatch, categorySelected]);
 
   useEffect(() => {
-    if (isLaunched) currentQuestion = pickRandomQuestion();
-  }, [isLaunched]);
+    if (isLaunched) currentQuestion = pickRandomQuestion(categorySelected);
+  }, [isLaunched, categorySelected]);
 
   return isLaunched === false ? (
     <StyledBoard>
       <Categories />
       <StyledLauncherButton
         onClick={() => {
-          currentQuestion = pickRandomQuestion();
+          currentQuestion = pickRandomQuestion(categorySelected);
           dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
           setIsLaunched(true);
         }}
@@ -78,6 +96,7 @@ function Board() {
     <StyledBoard>
       <Categories />
       <Question title={currentQuestion.Question} />
+      <Verdict />
       <AnswersPannel
         answers={currentQuestion.Answers}
         answered={answered}
@@ -87,11 +106,25 @@ function Board() {
   );
 }
 
-function pickRandomQuestion() {
-  let randomCategory = Math.round(
-    Math.random() * (dataQuestions.length - 1 - 0) + 0
-  );
-  let currentCategory = dataQuestions[randomCategory];
+function pickRandomQuestion(categorySelected) {
+  let randomCategory = 0;
+  let currentCategory = undefined;
+
+  if (categorySelected === 'ALL') {
+    randomCategory = Math.round(
+      Math.random() * (dataQuestions.length - 1 - 0) + 0
+    );
+    currentCategory = dataQuestions[randomCategory];
+  }
+
+  if (categorySelected === 'PROMPT') {
+    currentCategory = dataQuestions[0];
+  }
+
+  if (categorySelected === 'SUAP') {
+    currentCategory = dataQuestions[1];
+  }
+
   let randomID = Math.round(
     Math.random() * (currentCategory.questions.length - 1 - 0) + 0
   );
