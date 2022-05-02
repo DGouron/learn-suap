@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { useCallback } from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { dataQuestions } from '../datas/Questions';
 import { updateGoodAnswers } from '../store/AnswerManagementActions';
+import { currentScoreSelector } from '../store/AnswerManagementSelectors';
 import AnswersPannel from './AnswersPannel';
 import Categories from './Categories';
 import Question from './Question';
@@ -33,32 +34,32 @@ const StyledLauncherButton = styled.button`
 `;
 
 let currentQuestion = '';
-let currentGoodAnswers = [];
 
 function Board() {
+  const score = useSelector(currentScoreSelector);
   const [isLaunched, setIsLaunched] = useState(false);
   useEffect(() => {
-    document.title = isLaunched ? 'Quiz en cours ! ' : 'Learn Suap App';
-  }, [isLaunched]);
+    document.title = isLaunched ? `Quiz score ${score} ! ` : 'Learn Suap App';
+  }, [isLaunched, score]);
 
   const [, forceUpdate] = useState();
   const updateRender = useCallback(() => forceUpdate({}), []);
 
-  const [currentAnswerId, setAnswerId] = useState(42);
   const [answered, setAnswered] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (currentAnswerId !== -1 && answered === true) {
-      if (checkAnswerValidity(currentAnswerId)) {
-        currentQuestion = pickRandomQuestion();
-        dispatch(updateGoodAnswers(currentQuestion.goodAnswersIds));
-
-        updateRender();
-        setAnswered(false);
-      }
+    if (answered === true) {
+      currentQuestion = pickRandomQuestion();
+      dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
+      updateRender();
+      setAnswered(false);
     }
-  }, [currentAnswerId, answered, updateRender, dispatch]);
+  }, [answered, updateRender, dispatch]);
+
+  useEffect(() => {
+    if (isLaunched) currentQuestion = pickRandomQuestion();
+  }, [isLaunched]);
 
   return isLaunched === false ? (
     <StyledBoard>
@@ -66,6 +67,7 @@ function Board() {
       <StyledLauncherButton
         onClick={() => {
           currentQuestion = pickRandomQuestion();
+          dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
           setIsLaunched(true);
         }}
       >
@@ -76,11 +78,8 @@ function Board() {
     <StyledBoard>
       <Categories />
       <Question title={currentQuestion.Question} />
-      <p>{currentAnswerId}</p>
       <AnswersPannel
         answers={currentQuestion.Answers}
-        currentAnswerId={currentAnswerId}
-        setAnswerId={setAnswerId}
         answered={answered}
         setAnswered={setAnswered}
       />
@@ -96,13 +95,8 @@ function pickRandomQuestion() {
   let randomID = Math.round(
     Math.random() * (currentCategory.questions.length - 1 - 0) + 0
   );
-  return currentCategory.questions[randomID];
-}
 
-function checkAnswerValidity(answerId = 0) {
-  let isAGoodAnswer = currentGoodAnswers.includes(answerId, 0);
-  console.log(isAGoodAnswer ? 'Good Answer' : 'Bad Answer');
-  return true;
+  return currentCategory.questions[randomID];
 }
 
 export default Board;

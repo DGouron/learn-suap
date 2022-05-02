@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import {
+  currentRatioSelector,
+  currentScoreSelector,
+} from '../store/AnswerManagementSelectors';
 
 const StyledPannel = styled.div`
   height: 60%;
@@ -8,23 +12,19 @@ const StyledPannel = styled.div`
 `;
 
 function StatsPannel() {
-  const score = useSelector((state) => state.score);
+  const score = useSelector(currentScoreSelector);
   let scoretext = 'Le score est: ' + score;
 
   const bestSerie = useSelector((state) => state.bestSerie);
   let bestSerieText = 'Meilleure série : ' + bestSerie;
 
-  const selectedAnswerId = useSelector((state) => state.selectedAnswerId);
-  let selectedAnswerIdText = 'Réponse selectionnée : ' + selectedAnswerId;
-
-  const goodAnswersIds = useSelector((state) => state.goodAnswersIds);
-  let goodAnswersText = 'Bonnes réponses : ' + goodAnswersIds;
+  const ratio = useSelector(currentRatioSelector);
+  let ratioText = ratio + '% de tes réponses sont correctes.';
   return (
     <StyledPannel>
       <p>{scoretext}</p>
       <p>{bestSerieText}</p>
-      <p>{selectedAnswerIdText}</p>
-      <p>{goodAnswersText}</p>
+      <p>{ratioText}</p>
     </StyledPannel>
   );
 }
