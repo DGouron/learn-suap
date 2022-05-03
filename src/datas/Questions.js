@@ -38,7 +38,25 @@ export const dataQuestions =
                 "Question": "Que veut dire C.R.R.A",
                 "Answers": ["A - Centre Régional de Réception de l'Alerte", "B - Comité Républicain du Rétablissement des Autorités", "C - Centre de Réception et de Régulation des Appels"],
                 "GoodAnswers" : [2]
-                }
+                },
+                {
+                "id": 7,
+                "Question": "Dans l'acronyme C.R.O.S.S., que signifie le premier S",
+                "Answers": ["A - Sécurité", "B - Surveillance", "C - Sauvetage", "D - Aucune des propositions"],
+                "GoodAnswers" : [1]
+                },
+                {
+                    "id": 8,
+                    "Question": "Le plus petit dispositif de secours est le",
+                    "Answers": ["A - DPS-GE", "B - DPS-PE", "C - PAPS", "D - DPS-ME"],
+                    "GoodAnswers" : [2]
+                },
+                {
+                    "id": 9,
+                    "Question": "P.A.P.S. veut dire",
+                    "Answers": ["A - Point Accessible aux Premiers Secours", "B - Point d'Alerte et de Premiers Secours", "C - Point d'Alerte et de Premiers Soins", "D - Point Accessible aux Premiers Soins"],
+                    "GoodAnswers" : [1]
+                }  
         ]
     },
     {

@@ -32,7 +32,7 @@ function Categories() {
         <Category
           categoryName="PROMPT"
           title={
-            'Questions Equipier promp-secours (' +
+            'Questions Equipier prompt-secours (' +
             dataQuestions[0].questions.length +
             ')'
           }
