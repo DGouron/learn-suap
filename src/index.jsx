@@ -10,6 +10,7 @@ import Home from './pages/Home/index';
 import Survey from './pages/Survey';
 import Header from './components/Header/index';
 import Error from './components/Error/index';
+import Footer from './components/Footer/index';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
@@ -24,6 +25,7 @@ root.render(
           <Route path="/survey" element={<Survey />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <Footer />
       </Router>
     </StrictMode>
   </Provider>

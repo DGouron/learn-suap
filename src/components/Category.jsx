@@ -18,6 +18,7 @@ function Category(props) {
     <StyledCategory
       selected={isSelected}
       value={props.categoryName}
+      label={title}
       onClick={() => {
         dispatch(updateCategorySelected(categoryName));
       }}

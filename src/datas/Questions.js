@@ -32,6 +32,12 @@ export const dataQuestions =
                 "Question": "Dans l'acronyme U.I.I.S.C., que signifie le premier I",
                 "Answers": ["A - Intervention", "B - Instruction", "C - Internationale"],
                 "GoodAnswers" : [1]
+                },
+                {
+                "id": 6,
+                "Question": "Que veut dire C.R.R.A",
+                "Answers": ["A - Centre Régional de Réception de l'Alerte", "B - Comité Républicain du Rétablissement des Autorités", "C - Centre de Réception et de Régulation des Appels"],
+                "GoodAnswers" : [2]
                 }
         ]
     },
@@ -55,6 +61,12 @@ export const dataQuestions =
                 "Question": "Un équipier peut être entendu par la police sur les circonstances d'une intervention",
                 "Answers": ["A - vrai", "B - faux"],
                 "GoodAnswers" : [0]
+                },
+                {
+                "id": 4,
+                "Question": "Un sapeur-pompier peut divulguer des informations à qui le demande sur l'état d'une victime",
+                "Answers": ["A - vrai", "B - faux"],
+                "GoodAnswers" : [1]
                 }
                 
         ]

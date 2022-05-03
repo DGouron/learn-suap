@@ -4,9 +4,8 @@ import styled from 'styled-components';
 const StyledAnswersPannel = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: maroon;
-  border: 1px solid grey;
-  border-radius: 20px;
+  background-color: #3b383a;
+  border-radius: 10px;
   flex-wrap: wrap;
   justify-content: center;
 `;

@@ -1,10 +1,23 @@
 import styled from 'styled-components';
 import LogoAsset from '../../assets/logo.png';
 
-const Banner = styled.div`
-  background-color: yellow;
+const Banner = styled.header`
+  padding-right: 2%;
   display: flex;
   flex-direction: row;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-bottom-color: rgba(0, 0, 0, 0);
+  border-bottom-width: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  border-bottom-style: solid;
+  background-color: #161a1d;
+  box-sizing: border-box;
+  text-shadow: 2px 2px 2px #000000;
 `;
 const Logo = styled.img`
   height: 128px;
@@ -13,12 +26,11 @@ const Logo = styled.img`
 `;
 
 const Title = styled.h1`
-  font-size: 35px;
+  color: red;
+  font-size: 2em;
 `;
 
-const Subtitle = styled.h2`
-  font-size: 18px;
-`;
+const Subtitle = styled.h2``;
 
 const InformationsBlock = styled.div`
   display: flex;

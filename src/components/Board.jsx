@@ -18,32 +18,56 @@ import Categories from './Categories';
 import Question from './Question';
 import Result from './Result';
 
-const StyledBoard = styled.div`
+const StyledBoard = styled.article`
   height: auto;
   min-height: 50%;
   max-height: 60%;
   width: 60%;
   max-width: 60%;
-  background-color: blue;
-  border-radius: 20px;
+  background-color: #b1a7a6;
+  border-radius: 10px;
   margin-left: 1%;
   padding: 1%;
   flex-grow: 2;
+  margin-right: 5%;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 `;
 
 const StyledLauncherButton = styled.button`
-  width: 128px;
-  min-width: 128px;
-  height: 96px;
+  width: 40%;
+  margin: 10%;
+  max-height: 72px;
   font-size: 18px;
+  flex-grow: 2;
+
+  transition: 0.25s outline;
+  background-color: #9a0101;
+  outline: 1px solid #650a0b;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 4px 6px 8px 2px rgba(0, 0, 0, 0.79);
+
+  color: white;
+  letter-spacing: 0.2rem;
+  font-size: auto;
+  font-weight: bold;
+
+  &:hover {
+    outline: 2px solid #909595;
+  }
 `;
 
 let currentQuestion = '';
 
 function Board() {
+  const delaiBetweenQuestions = 3000;
   const dispatch = useDispatch();
 
   const score = useSelector(currentScoreSelector);
@@ -66,12 +90,15 @@ function Board() {
   const updateRender = useCallback(() => forceUpdate({}), []);
 
   const [answered, setAnswered] = useState(false);
+
   useEffect(() => {
     if (answered === true) {
-      currentQuestion = pickRandomQuestion(categorySelected);
-      dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
-      updateRender();
-      setAnswered(false);
+      setTimeout(() => {
+        currentQuestion = pickRandomQuestion(categorySelected);
+        dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
+        updateRender();
+        setAnswered(false);
+      }, delaiBetweenQuestions);
     }
   }, [answered, updateRender, dispatch, categorySelected]);
 
@@ -96,7 +123,9 @@ function Board() {
     <StyledBoard>
       <Categories />
       <Question title={currentQuestion.Question} />
-      <Result />
+      <section>
+        <Result resultText="" />
+      </section>
       <AnswersPannel
         answers={currentQuestion.Answers}
         answered={answered}
