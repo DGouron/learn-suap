@@ -13,6 +13,7 @@ const StyledAnswersPannel = styled.div`
 
 function AnswersPannel(props) {
   let answers = [];
+
   for (let index = 0; index < props.answers.length; index++) {
     answers.push(
       <Answer

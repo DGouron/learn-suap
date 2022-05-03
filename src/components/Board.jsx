@@ -16,7 +16,7 @@ import {
 import AnswersPannel from './AnswersPannel';
 import Categories from './Categories';
 import Question from './Question';
-import Verdict from './Verdict';
+import Result from './Result';
 
 const StyledBoard = styled.div`
   height: auto;
@@ -96,7 +96,7 @@ function Board() {
     <StyledBoard>
       <Categories />
       <Question title={currentQuestion.Question} />
-      <Verdict />
+      <Result />
       <AnswersPannel
         answers={currentQuestion.Answers}
         answered={answered}
