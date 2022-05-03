@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { dataQuestions } from '../datas/Questions';
 import {
+  updateAnswerTraitment,
   updateGoodAnswers,
   updateNeedRestartApp,
 } from '../store/AnswerManagementActions';
@@ -97,6 +98,7 @@ function Board() {
         currentQuestion = pickRandomQuestion(categorySelected);
         dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
         updateRender();
+        dispatch(updateAnswerTraitment(false));
         setAnswered(false);
       }, delaiBetweenQuestions);
     }

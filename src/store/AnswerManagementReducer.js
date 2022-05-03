@@ -8,6 +8,7 @@ export const initialState = {
     goodAnswersIds: [],
     categorySelected: 'ALL',
     bNeedRestartApp: false,
+    bAnswerTraitment: false,
 };
 
 export const restartState = {
@@ -20,6 +21,7 @@ export const restartState = {
     categorySelected: 'ALL',
     goodAnswersIds: [],
     bNeedRestartApp: true,
+    bAnswerTraitment: false,
 };
 
 export const RESTART_ACTION = 'RESTART_ACTION';
@@ -28,6 +30,7 @@ export const UPDATE_GOOD_ANSWERS_ACTION = 'UPDATE_GOOD_ANSWERS_ACTION';
 export const UPDATE_SCORE_ACTION = 'UPDATE_SCORE_ACTION';
 export const UPDATE_NEED_RESTART_APP_ACTION = 'UPDATE_NEED_RESTART_APP_ACTION';
 export const UPDATE_CATEGORY_SELECTED_ACTION = 'UPDATE_CATEGORY_SELECTED_ACTION';
+export const UPDATE_ANSWER_TRAITMENT_ACTION = 'UPDATE_ANSWER_TRAITMENT_ACTION';
 
 export function AnswerManagementReducer(state, action) {
     switch (action.type) {
@@ -53,6 +56,9 @@ export function AnswerManagementReducer(state, action) {
             return{...state, bNeedRestartApp: action.payload.bNeedRestartApp};
         case UPDATE_CATEGORY_SELECTED_ACTION:
             return{...state, categorySelected: action.payload.categorySelected};
+        case UPDATE_ANSWER_TRAITMENT_ACTION:
+            console.log('ANSWER TRAITMENT')
+            return{...state, bAnswerTraitment: action.payload.bAnswerTraitment};
         default:
           return state;
     }

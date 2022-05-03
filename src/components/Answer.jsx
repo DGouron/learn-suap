@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { updateSelectedAnswerId } from '../store/AnswerManagementActions';
+import {
+  updateAnswerTraitment,
+  updateSelectedAnswerId,
+} from '../store/AnswerManagementActions';
 import { useState } from 'react';
 
 const StyledAnswer = styled.div`
@@ -42,11 +45,11 @@ function Answer(props) {
   function selectThisAnswer() {
     setAnswered(true);
   }
-  console.log(props.answered);
   return (
     <StyledAnswer>
       <StyledButton
         onClick={() => {
+          dispatch(updateAnswerTraitment(true));
           dispatch(updateSelectedAnswerId(idOfthisAnswer));
           selectThisAnswer();
         }}

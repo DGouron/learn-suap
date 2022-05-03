@@ -26,3 +26,8 @@ export const updateCategorySelected = (categorySelected) => ({
     type: 'UPDATE_CATEGORY_SELECTED_ACTION',
     payload: {...categorySelected, categorySelected: categorySelected}
 })
+
+export const updateAnswerTraitment = (bAnswerTraitment) => ({
+    type: 'UPDATE_ANSWER_TRAITMENT_ACTION',
+    payload: {...bAnswerTraitment, bAnswerTraitment: bAnswerTraitment}
+})

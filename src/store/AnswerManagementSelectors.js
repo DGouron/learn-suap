@@ -4,3 +4,4 @@ export const currentGoodAnswersSelector = ((state) => state.goodAnswersIds);
 export const currentRatioSelector = ((state) => state.ratio);
 export const currentNeedRestartAppSelector = ((state) => state.bNeedRestartApp);
 export const currentCategorySelected = ((state) => state.categorySelected);
+export const currentAnswerTraitmentSelector = ((state) => state.bAnswerTraitment);
