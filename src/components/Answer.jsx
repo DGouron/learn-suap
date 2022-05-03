@@ -8,20 +8,29 @@ const StyledAnswer = styled.div`
 `;
 
 const StyledButton = styled.button`
-  outline: 2px solid #d3d6da;
+  transition: 0.25s outline;
   background-color: #650a0b;
-  color: white;
+  outline: 1px solid #650a0b;
+  border: 0px;
   border-radius: 5px;
+  box-shadow: 4px 6px 8px 2px rgba(0, 0, 0, 0.79);
+
+  color: white;
+  letter-spacing: 0.2rem;
+  font-size: auto;
+  font-weight: bold;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.25s outline;
+
   width: auto;
   min-width: 128px;
   height: 96px;
-  font-size: auto;
-  font-weight: bold;
+
+  &:hover {
+    outline: 2px solid #909595;
+  }
 `;
 
 function Answer(props) {

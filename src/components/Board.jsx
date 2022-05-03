@@ -34,14 +34,34 @@ const StyledBoard = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 `;
 
 const StyledLauncherButton = styled.button`
   width: 40%;
-  margin-left: 10%;
+  margin: 10%;
   max-height: 72px;
   font-size: 18px;
   flex-grow: 2;
+
+  transition: 0.25s outline;
+  background-color: #9a0101;
+  outline: 1px solid #650a0b;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 4px 6px 8px 2px rgba(0, 0, 0, 0.79);
+
+  color: white;
+  letter-spacing: 0.2rem;
+  font-size: auto;
+  font-weight: bold;
+
+  &:hover {
+    outline: 2px solid #909595;
+  }
 `;
 
 let currentQuestion = '';

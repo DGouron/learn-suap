@@ -13,10 +13,20 @@ const StyledPannel = styled.aside`
   width: 20%;
   background-color: #d3d3d3;
   border-radius: 10px;
+  border: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2%;
+
+  color: black;
+  text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.2);
+  font-size: 15px;
+  font-weight: bold;
+
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 `;
 
 let ratioColor = 'black';
@@ -27,13 +37,24 @@ const StyledRatioText = styled.h2`
 `;
 
 const StyledResetButton = styled.button`
-  background-color: #b1a7a6;
-  color: #ba181b;
-  width: 40%;
+  transition: 0.25s outline;
+  background-color: #650a0b;
+  outline: 1px solid #650a0b;
+  border: 0px;
+  border-radius: 5px;
+  box-shadow: 4px 6px 8px 2px rgba(0, 0, 0, 0.79);
+  width: auto;
   height: auto;
   min-height: 48px;
+
+  color: white;
+  letter-spacing: 0.2rem;
+  font-size: auto;
   font-weight: bold;
-  font-size: 1.2em;
+
+  &:hover {
+    outline: 2px solid #909595;
+  }
 `;
 
 function StatsPannel() {

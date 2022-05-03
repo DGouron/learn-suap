@@ -2,9 +2,13 @@ import styled from 'styled-components';
 import { dataQuestions } from '../datas/Questions';
 import Category from './Category';
 
-const StyledCategories = styled.nav``;
+const StyledCategories = styled.nav`
+  width: 60%;
+`;
 
 const StyledSelector = styled.select`
+  width: 60%;
+  height: 100%;
   background-color: #3b383a;
   border: 2px solid #909595;
   border-radius: 10px;

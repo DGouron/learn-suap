@@ -17,6 +17,7 @@ const Banner = styled.header`
   border-bottom-style: solid;
   background-color: #161a1d;
   box-sizing: border-box;
+  text-shadow: 2px 2px 2px #000000;
 `;
 const Logo = styled.img`
   height: 128px;
