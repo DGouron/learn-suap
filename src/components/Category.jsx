@@ -12,11 +12,8 @@ function Category(props) {
   const categoryName = props.categoryName;
   const dispatch = useDispatch();
 
-  let isSelected = props.isDefaultSelected ? 'selected' : '';
-
   return (
     <StyledCategory
-      selected={isSelected}
       value={props.categoryName}
       label={title}
       onClick={() => {
