@@ -42,7 +42,7 @@ function Answer(props) {
   function selectThisAnswer() {
     setAnswered(true);
   }
-
+  console.log(props.answered);
   return (
     <StyledAnswer>
       <StyledButton
@@ -50,6 +50,7 @@ function Answer(props) {
           dispatch(updateSelectedAnswerId(idOfthisAnswer));
           selectThisAnswer();
         }}
+        disabled={props.answered ? 'disabled' : ''}
       >
         {props.content}
       </StyledButton>

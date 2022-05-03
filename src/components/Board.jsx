@@ -90,9 +90,6 @@ function Board() {
   const updateRender = useCallback(() => forceUpdate({}), []);
 
   const [answered, setAnswered] = useState(false);
-  const [resultComponent, setResultComponent] = useState(
-    <Result resultText="" />
-  );
 
   useEffect(() => {
     if (answered === true) {
@@ -100,10 +97,9 @@ function Board() {
         currentQuestion = pickRandomQuestion(categorySelected);
         dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
         updateRender();
+        setAnswered(false);
       }, delaiBetweenQuestions);
     }
-
-    setAnswered(false);
   }, [answered, updateRender, dispatch, categorySelected]);
 
   useEffect(() => {
@@ -127,7 +123,9 @@ function Board() {
     <StyledBoard>
       <Categories />
       <Question title={currentQuestion.Question} />
-      <section>{resultComponent}</section>
+      <section>
+        <Result resultText="" />
+      </section>
       <AnswersPannel
         answers={currentQuestion.Answers}
         answered={answered}
