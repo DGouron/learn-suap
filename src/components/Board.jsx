@@ -68,7 +68,7 @@ const StyledLauncherButton = styled.button`
 let currentQuestion = '';
 
 function Board() {
-  const delaiBetweenQuestions = 3000;
+  const delaiBeforeNextQuestion = 3000;
   const dispatch = useDispatch();
 
   const score = useSelector(currentScoreSelector);
@@ -100,7 +100,7 @@ function Board() {
         updateRender();
         dispatch(updateAnswerTraitment(false));
         setAnswered(false);
-      }, delaiBetweenQuestions);
+      }, delaiBeforeNextQuestion);
     }
   }, [answered, updateRender, dispatch, categorySelected]);
 
@@ -126,7 +126,7 @@ function Board() {
       <Categories />
       <Question title={currentQuestion.Question} />
       <section>
-        <Result resultText="" />
+        <Result delayBeforeNextQuestion={delaiBeforeNextQuestion} />
       </section>
       <AnswersPannel
         answers={currentQuestion.Answers}

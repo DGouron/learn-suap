@@ -23,11 +23,10 @@ function Categories() {
 
   return (
     <StyledCategories>
-      <StyledSelector name="Categories" id="Categories">
+      <StyledSelector name="Categories" id="Categories" defaultValue={'ALL'}>
         <Category
           categoryName="ALL"
           title={'Toutes les questions (' + totalQuestionsNumber + ')'}
-          isDefaultSelect={true}
         />
         <Category
           categoryName="PROMPT"
@@ -36,7 +35,6 @@ function Categories() {
             dataQuestions[0].questions.length +
             ')'
           }
-          isDefaultSelect={false}
         />
         <Category
           categoryName="SUAP"
@@ -45,7 +43,6 @@ function Categories() {
             dataQuestions[1].questions.length +
             ')'
           }
-          isDefaultSelect={false}
         />
       </StyledSelector>
     </StyledCategories>

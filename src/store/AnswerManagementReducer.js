@@ -57,7 +57,6 @@ export function AnswerManagementReducer(state, action) {
         case UPDATE_CATEGORY_SELECTED_ACTION:
             return{...state, categorySelected: action.payload.categorySelected};
         case UPDATE_ANSWER_TRAITMENT_ACTION:
-            console.log('ANSWER TRAITMENT')
             return{...state, bAnswerTraitment: action.payload.bAnswerTraitment};
         default:
           return state;
