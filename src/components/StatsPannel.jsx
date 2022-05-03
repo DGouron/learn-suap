@@ -6,10 +6,13 @@ import {
 } from '../store/AnswerManagementSelectors';
 import { restart } from '../store/AnswerManagementActions';
 
-const StyledPannel = styled.div`
-  height: 60%;
+const StyledPannel = styled.aside`
+  height: auto;
+  min-height: 50%;
+  max-height: 60%;
   width: 20%;
-  background-color: green;
+  background-color: #d3d3d3;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,17 +21,19 @@ const StyledPannel = styled.div`
 
 let ratioColor = 'black';
 
-const StyledRatioText = styled.p`
+const StyledRatioText = styled.h2`
   color: ${ratioColor};
-  font-size: 32px;
+  font-size: 1em;
 `;
 
 const StyledResetButton = styled.button`
-  background-color: red;
-  color: white;
-  width: 80%;
+  background-color: #b1a7a6;
+  color: #ba181b;
+  width: 40%;
   height: auto;
-  font-size: 20px;
+  min-height: 48px;
+  font-weight: bold;
+  font-size: 1.2em;
 `;
 
 function StatsPannel() {
@@ -38,7 +43,10 @@ function StatsPannel() {
   let scoretext = 'Score total : ' + score;
 
   const bestSerie = useSelector((state) => state.bestSerie);
-  let bestSerieText = 'Série de bonnes réponses: ' + bestSerie;
+  let bestSerieText = 'Meilleure série : ' + bestSerie;
+
+  const currentSerie = useSelector((state) => state.currentSerie);
+  let currentSerieText = 'Série de bonnes réponses: ' + currentSerie;
 
   const ratio = useSelector(currentRatioSelector);
   ratioColor = ratio < 60 ? 'green' : 'red';
@@ -49,8 +57,8 @@ function StatsPannel() {
   return (
     <StyledPannel>
       <p>{scoretext}</p>
-      <p>{bestSerieText}</p>
-      <p>Meilleure série : </p>
+      <p>{currentSerieText}</p>
+      <p>{bestSerieText} </p>
       <StyledRatioText>{ratioText}</StyledRatioText>
       <br />
       <StyledResetButton

@@ -18,32 +18,36 @@ import Categories from './Categories';
 import Question from './Question';
 import Result from './Result';
 
-const StyledBoard = styled.div`
+const StyledBoard = styled.article`
   height: auto;
   min-height: 50%;
   max-height: 60%;
   width: 60%;
   max-width: 60%;
-  background-color: blue;
-  border-radius: 20px;
+  background-color: #b1a7a6;
+  border-radius: 10px;
   margin-left: 1%;
   padding: 1%;
   flex-grow: 2;
+  margin-right: 5%;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
 `;
 
 const StyledLauncherButton = styled.button`
-  width: 128px;
-  min-width: 128px;
-  height: 96px;
+  width: 40%;
+  margin-left: 10%;
+  max-height: 72px;
   font-size: 18px;
+  flex-grow: 2;
 `;
 
 let currentQuestion = '';
 
 function Board() {
+  const delaiBetweenQuestions = 3000;
   const dispatch = useDispatch();
 
   const score = useSelector(currentScoreSelector);
@@ -66,13 +70,20 @@ function Board() {
   const updateRender = useCallback(() => forceUpdate({}), []);
 
   const [answered, setAnswered] = useState(false);
+  const [resultComponent, setResultComponent] = useState(
+    <Result resultText="" />
+  );
+
   useEffect(() => {
     if (answered === true) {
-      currentQuestion = pickRandomQuestion(categorySelected);
-      dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
-      updateRender();
-      setAnswered(false);
+      setTimeout(() => {
+        currentQuestion = pickRandomQuestion(categorySelected);
+        dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
+        updateRender();
+      }, delaiBetweenQuestions);
     }
+
+    setAnswered(false);
   }, [answered, updateRender, dispatch, categorySelected]);
 
   useEffect(() => {
@@ -96,7 +107,7 @@ function Board() {
     <StyledBoard>
       <Categories />
       <Question title={currentQuestion.Question} />
-      <Result />
+      <section>{resultComponent}</section>
       <AnswersPannel
         answers={currentQuestion.Answers}
         answered={answered}

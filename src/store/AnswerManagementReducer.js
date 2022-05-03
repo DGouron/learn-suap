@@ -1,5 +1,6 @@
 export const initialState = {
     score: 0,
+    currentSerie: 0,
     bestSerie: 0,
     ratio: 100,
     numberOfQuestionsAnswered: 0,
@@ -11,6 +12,7 @@ export const initialState = {
 
 export const restartState = {
     score: 0,
+    currentSerie: 0,
     bestSerie: 0,
     ratio: 100,
     numberOfQuestionsAnswered: 0,
@@ -34,9 +36,10 @@ export function AnswerManagementReducer(state, action) {
         case UPDATE_SELECTEDANSWER_ID_ACTION:
             if(state.goodAnswersIds.includes(action.payload.selectedAnswerId)){
                 state.score++;
-                state.bestSerie++;
+                state.currentSerie++;
+                if(state.currentSerie > state.bestSerie) state.bestSerie = state.currentSerie;
             }else{
-                state.bestSerie = 0;
+                state.currentSerie = 0;
             }
 
             state.numberOfQuestionsAnswered++;

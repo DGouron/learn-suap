@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const StyledQuestion = styled.div`
-  flex-grow: 2;
+const StyledQuestion = styled.section`
+  margin: auto;
 `;
 
 function Question(props) {

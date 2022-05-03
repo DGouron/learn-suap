@@ -4,16 +4,24 @@ import { updateSelectedAnswerId } from '../store/AnswerManagementActions';
 import { useState } from 'react';
 
 const StyledAnswer = styled.div`
-  background-color: red;
-  border: 1px solid grey;
   margin: 10px;
 `;
 
 const StyledButton = styled.button`
+  outline: 2px solid #d3d6da;
+  background-color: #650a0b;
+  color: white;
+  border-radius: 5px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s outline;
   width: auto;
   min-width: 128px;
   height: 96px;
-  font-size: 18px;
+  font-size: auto;
+  font-weight: bold;
 `;
 
 function Answer(props) {

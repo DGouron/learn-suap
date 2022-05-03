@@ -1,5 +1,5 @@
-function Result() {
-  return <p>Résultat</p>;
+function Result(props) {
+  return <p>{props.resultText}</p>;
 }
 
 export default Result;
