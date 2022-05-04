@@ -23,6 +23,11 @@ const Logo = styled.img`
   height: 128px;
   width: 128px;
   justify-content: left;
+
+  @media (max-width: 800px) {
+    height: 96px;
+    width: 96px;
+  }
 `;
 
 const Title = styled.h1`
@@ -37,6 +42,10 @@ const InformationsBlock = styled.div`
   flex-direction: column;
   text-align: right;
   flex-grow: 3;
+
+  @media (max-width: 800px) {
+    font-size: 10px;
+  }
 `;
 
 function Header() {

@@ -44,6 +44,13 @@ const StyledButton = styled.button`
   &:hover {
     outline: ${hoverOutlineColor};
   }
+
+  @media (max-width: 1080px) {
+    height: 48px;
+  }
+  @media (max-width: 800px) {
+    height: 48px;
+  }
 `;
 
 function Answer(props) {

@@ -21,12 +21,26 @@ const StyledPannel = styled.aside`
 
   color: black;
   text-shadow: 3px 2px 3px rgba(255, 255, 255, 0.2);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
 
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+  @media (max-width: 1080px) {
+    font-size: 12px;
+    margin-bottom: 5%;
+  }
+  @media (max-width: 800px) {
+    font-size: 10px;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+    min-height: 5%;
+    max-height: 10%;
+    margin-bottom: 5%;
+  }
 `;
 
 let ratioColor = 'black';
@@ -54,6 +68,12 @@ const StyledResetButton = styled.button`
 
   &:hover {
     outline: 2px solid #909595;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 12px;
+    flex-direction: row;
+    height: 48px;
   }
 `;
 

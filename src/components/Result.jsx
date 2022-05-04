@@ -9,7 +9,8 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 
 const StyledResult = styled.div`
-  margin-left: 45%;
+  margin-left: 40%;
+  padding: 5%;
 `;
 
 const StyledResultText = styled.p`

@@ -22,27 +22,39 @@ import Result from './Result';
 const StyledBoard = styled.article`
   height: auto;
   min-height: 50%;
-  max-height: 60%;
+  max-height: 70%;
   width: 60%;
   max-width: 60%;
   background-color: #b1a7a6;
   border-radius: 10px;
   margin-left: 1%;
-  padding: 1%;
   flex-grow: 2;
   margin-right: 5%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  align-items: center;
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+  @media (max-width: 1080px) {
+    max-height: 90%;
+  }
+  @media (max-width: 800px) {
+    max-height: 90%;
+    width: 100vw;
+    min-width: 100%;
+    margin-left: 1%;
+    margin-right: 3%;
+    justify-content: top;
+  }
 `;
 
 const StyledLauncherButton = styled.button`
-  width: 40%;
+  width: auto;
+  max-width: 70%;
   margin: 10%;
   max-height: 72px;
   font-size: 18px;

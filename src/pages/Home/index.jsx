@@ -8,6 +8,10 @@ const Container = styled.div`
   display: flex;
   margin-top: 5%;
   flex-direction: row;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 function Home() {
