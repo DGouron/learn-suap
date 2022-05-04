@@ -60,8 +60,8 @@ function Header() {
       <InformationsBlock>
         <Title>Learn Suap</Title>
         <Subtitle>
-          Un quiz pour tester vos connaissances sur le thème du secours
-          d'urgence aux personnes.
+          Un quiz pour t'entrainer sur le thème du secours d'urgence aux
+          personnes.
         </Subtitle>
       </InformationsBlock>
     </Banner>
