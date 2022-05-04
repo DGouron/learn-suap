@@ -21,7 +21,7 @@ const wrongTheme = { outline: '2px solid red' };
 const hoverOutlineColor = '2px solid #909595';
 
 const StyledButton = styled.button`
-  transition: 0.25s outline;
+  transition: 0.1s outline ease;
   background-color: #650a0b;
   outline: ${(props) => props.theme.outline || '1px solid #650a0b'};
   border: 0px;
