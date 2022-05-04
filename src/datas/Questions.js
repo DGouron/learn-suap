@@ -65,7 +65,7 @@ export const dataQuestions =
                 },
                 {
                     "id": 11,
-                    "Question": "Lors d'une attaque terrosite ou une situation de violence, les bons comportements à adopter sont",
+                    "Question": "Lors d'une attaque terroriste ou une situation de violence, les bons comportements à adopter sont",
                     "Answers": ["A - S'échapper - Alerter - Se cacher", "B - Alerter - Se cacher - S'échapper", "C - S'échapper - Se cacher - Alerter"],
                     "GoodAnswers" : [2]
                 } ,

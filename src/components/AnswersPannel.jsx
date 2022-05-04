@@ -1,5 +1,6 @@
 import Answer from './Answer';
 import styled from 'styled-components';
+import { Loader } from './Loader';
 
 const StyledAnswersPannel = styled.div`
   display: flex;
@@ -13,22 +14,30 @@ const StyledAnswersPannel = styled.div`
 function AnswersPannel(props) {
   let answers = [];
 
-  for (let index = 0; index < props.answers.length; index++) {
-    answers.push(
-      <Answer
-        key={index}
-        idOfthisAnswer={index}
-        content={props.answers[index]}
-        currentAnswerId={props.currentAnswerId}
-        setAnswerId={props.setAnswerId}
-        answered={props.answered}
-        setAnswered={props.setAnswered}
-      />
-    );
+  if (props.answers !== undefined) {
+    for (let index = 0; index < props.answers.length; index++) {
+      answers.push(
+        <Answer
+          key={index}
+          idOfthisAnswer={index}
+          content={props.answers[index]}
+          currentAnswerId={props.currentAnswerId}
+          setAnswerId={props.setAnswerId}
+          answered={props.answered}
+          setAnswered={props.setAnswered}
+        />
+      );
+    }
   }
 
   return (
-    <StyledAnswersPannel>{answers.map((answer) => answer)}</StyledAnswersPannel>
+    <StyledAnswersPannel>
+      {props.answers === undefined ? (
+        <Loader />
+      ) : (
+        answers.map((answer) => answer)
+      )}
+    </StyledAnswersPannel>
   );
 }
 

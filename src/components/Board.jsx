@@ -81,13 +81,16 @@ const StyledLauncherButton = styled.button`
 let currentQuestion = '';
 
 function Board() {
-  const delaiBeforeNextQuestion = 2000;
+  const [delaiBeforeNextQuestion] = useState(2000);
+
   const dispatch = useDispatch();
 
   const score = useSelector(currentScoreSelector);
   const categorySelected = useSelector(currentCategorySelected);
 
   const [isLaunched, setIsLaunched] = useState(false);
+  const [isInit, setIsInit] = useState(false);
+
   useEffect(() => {
     document.title = isLaunched ? `Quiz score ${score} ! ` : 'Learn Suap App';
   }, [isLaunched, score]);
@@ -106,27 +109,40 @@ function Board() {
   const [answered, setAnswered] = useState(false);
 
   useEffect(() => {
-    if (answered === true) {
+    if (answered === true && isInit === true) {
       setTimeout(() => {
         currentQuestion = pickRandomQuestion(categorySelected);
+        dispatch(updateAnswerTraitment(false));
         dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
         updateRender();
-        dispatch(updateAnswerTraitment(false));
         setAnswered(false);
       }, delaiBeforeNextQuestion);
     }
-  }, [answered, updateRender, dispatch, categorySelected]);
+  }, [
+    answered,
+    updateRender,
+    dispatch,
+    categorySelected,
+    delaiBeforeNextQuestion,
+    isInit,
+  ]);
 
   useEffect(() => {
-    if (isLaunched) currentQuestion = pickRandomQuestion(categorySelected);
-  }, [isLaunched, categorySelected]);
+    if (isLaunched) {
+      currentQuestion = pickRandomQuestion(categorySelected);
+      dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
+      updateRender();
+      setTimeout(() => {
+        setIsInit(true);
+      }, 1000);
+    }
+  }, [isLaunched, categorySelected, updateRender, dispatch]);
 
   return isLaunched === false ? (
     <StyledBoard>
       <Categories />
       <StyledLauncherButton
         onClick={() => {
-          currentQuestion = pickRandomQuestion(categorySelected);
           dispatch(updateGoodAnswers(currentQuestion.GoodAnswers));
           setIsLaunched(true);
         }}
