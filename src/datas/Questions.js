@@ -163,7 +163,104 @@ export const dataQuestions =
                     "Question": "I.S.P signifie",
                     "Answers": ["A - Instructeur Sapeur-Pompier", "B - Infirmier Sapeur-Pompier", "C - Initiateur Sapeur-pompier"],
                     "GoodAnswers" : [1]
+                },
+                {
+                    "id": 14,
+                    "Question": "C.U.M.P signifie",
+                    "Answers": ["A - Cellule Unique Médicale Psychologique", "B - Certificat Universitaire Médico-Psychologique", "C - Cellule d'Urgence Médico-Psychologique"],
+                    "GoodAnswers" : [2]
+                },
+                {
+                    "id": 15,
+                    "Question": "Un infirmier sapeur-pompier peut",
+                    "Answers": ["A - médicaliser une victime en respectant les protocoles", "B - compléter le bilan secouriste", "C - administrer des médicaments sans protocole", "D - participier aux visites médicales d'aptitudes"],
+                    "GoodAnswers" : [0,3]
+                },
+                {
+                    "id": 16,
+                    "Question": "L'équipe d'une association secouriste peut venir compléter un dispositif de secours",
+                    "Answers": ["A - vrai", "B - faux"],
+                    "GoodAnswers" : [0]
+                },
+                {
+                    "id": 17,
+                    "Question": "Un VSAV est limité à",
+                    "Answers": ["A - 4 personnes", "B - 5 personnes", "C - 6 personnes"],
+                    "GoodAnswers" : [1]
+                },
+                {
+                    "id": 18,
+                    "Question": "Un VSAV est de type",
+                    "Answers": ["A - C", "B - A", "C - D"],
+                    "GoodAnswers" : [0]
+                },
+                {
+                    "id": 19,
+                    "Question": "Les systèmes de fixation d'un VSAV doivent résister à une force de",
+                    "Answers": ["A - 6g", "B - 8g", "C - 10g"],
+                    "GoodAnswers" : [2]
+                },
+                {
+                    "id": 20,
+                    "Question": "V.S.A.V signifie",
+                    "Answers": ["A - Véhicule de Secours et d'Aide aux Victimes", "B - Véhicule Sanitaire d'Aide aux Victimes", "C - Véhicule de Soins et d'Aide aux Victimes", "D - Véhicule de Secours et d'Assistance aux Victimes"],
+                    "GoodAnswers" : [3]
+                },
+                {
+                    "id": 22,
+                    "Question": "La cellule du VSAV doit être nettoyée",
+                    "Answers": ["A - de la porte de sortie vers le fond", "B - du fond vers la porte de sortie"],
+                    "GoodAnswers" : [1]
+                },
+                {
+                    "id": 23,
+                    "Question": "J'utilise une éponge pour nettoyer les plans de travail du VSAV",
+                    "Answers": ["A - vrai", "B - faux"],
+                    "GoodAnswers" : [1]
+                },
+                {
+                    "id": 24,
+                    "Question": "Le petit matériel immergeable d'un VSAV doit rester tremper au moins",
+                    "Answers": ["A - 5 minutes", "B - 10 minutes", "C - 15 minutes"],
+                    "GoodAnswers" : [2]
+                },
+                {
+                    "id": 25,
+                    "Question": "Le produit de désinfection pour le sol est dilué dans",
+                    "Answers": ["A - le seau rouge", "B - le seau bleu"],
+                    "GoodAnswers" : [0]
+                },
+                {
+                    "id": 26,
+                    "Question": "On utilise la lavette à usage unique",
+                    "Answers": ["A - une fois", "B - trois fois", "C - cinq fois"],
+                    "GoodAnswers" : [0]
+                },
+                {
+                    "id": 27,
+                    "Question": "La lavette à usage unique sert pour le sol et les surfaces du VSAV",
+                    "Answers": ["A - vrai", "B - faux"],
+                    "GoodAnswers" : [1]
+                },
+                {
+                    "id": 28,
+                    "Question": "Je jette mes emballages de désinfectants dans la poubelle DASRI",
+                    "Answers": ["A - vrai", "B - faux"],
+                    "GoodAnswers" : [1]
+                },
+                {
+                    "id": 29,
+                    "Question": "En arrivant sur les lieux d'un accident sur la voie publique, le VSAV se positionne",
+                    "Answers": ["A - avant l'accident", "B - à hauteur de l'accident", "C - après l'accident"],
+                    "GoodAnswers" : [2]
+                },
+                {
+                    "id": 30,
+                    "Question": "Pour tout AVP, je mets un gilet de sécurité haute visibilité",
+                    "Answers": ["A - vrai", "B - faux"],
+                    "GoodAnswers" : [0]
                 }
+
     
                 
         ]
