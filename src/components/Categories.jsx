@@ -16,6 +16,13 @@ const StyledSelector = styled.select`
   color: white;
   font-size: 18px;
   vertical-align: center;
+  top: 0px;
+  @media (max-width: 1080px) {
+    width: 100%;
+  }
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;
 function Categories() {
   let totalQuestionsNumber =

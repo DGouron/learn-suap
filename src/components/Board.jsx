@@ -22,19 +22,17 @@ import Result from './Result';
 const StyledBoard = styled.article`
   height: auto;
   min-height: 50%;
-  max-height: 70%;
+  max-height: 10%;
   width: 60%;
   max-width: 60%;
   background-color: #b1a7a6;
   border-radius: 10px;
   margin-left: 1%;
-  flex-grow: 2;
   margin-right: 5%;
-
+  flex-grow: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
   -webkit-box-shadow: 0px 10px 13px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
@@ -54,11 +52,12 @@ const StyledBoard = styled.article`
 
 const StyledLauncherButton = styled.button`
   width: auto;
-  max-width: 70%;
+  max-width: 80%;
   margin: 10%;
-  max-height: 72px;
+  margin-bottom: 20%;
+  min-height: 48px;
+  max-height: 256px;
   font-size: 18px;
-  flex-grow: 2;
 
   transition: 0.25s outline;
   background-color: #9a0101;
@@ -72,6 +71,8 @@ const StyledLauncherButton = styled.button`
   font-size: auto;
   font-weight: bold;
 
+  align-self: center;
+
   &:hover {
     outline: 2px solid #909595;
   }
@@ -80,7 +81,7 @@ const StyledLauncherButton = styled.button`
 let currentQuestion = '';
 
 function Board() {
-  const delaiBeforeNextQuestion = 3000;
+  const delaiBeforeNextQuestion = 2000;
   const dispatch = useDispatch();
 
   const score = useSelector(currentScoreSelector);
@@ -135,7 +136,6 @@ function Board() {
     </StyledBoard>
   ) : (
     <StyledBoard>
-      <Categories />
       <Question title={currentQuestion.Question} />
       <section>
         <Result delayBeforeNextQuestion={delaiBeforeNextQuestion} />
