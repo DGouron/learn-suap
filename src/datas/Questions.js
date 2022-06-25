@@ -259,10 +259,14 @@ export const dataQuestions =
                     "Question": "Pour tout AVP, je mets un gilet de sécurité haute visibilité",
                     "Answers": ["A - vrai", "B - faux"],
                     "GoodAnswers" : [0]
+                },
+                {
+                    "id": 31,
+                    "Question": "Une obstruction d'une artère cérébrale provoque un AVC",
+                    "Answers": ["A - Ischémique", "B - Hémorragique", "C - Massif"],
+                    "GoodAnswers" : [0]
                 }
-
-    
-                
+                 
         ]
     }
 ]
